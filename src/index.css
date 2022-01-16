@@ -36,6 +36,11 @@ body {
   padding-bottom: 5px;
   border-bottom: 1px solid #ddd;
 }
+
+.banner-subtitle {
+  color: #f8f8f8;
+}
+
 .site-name {
   font-size: 5rem;
   font-weight: bold;
@@ -60,4 +65,28 @@ a:hover {
 
 .loading {
   margin-top: 30vh;
+}
+
+.media {
+  position: relative;
+}
+
+.media .badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 12px;
+  background: rgba(50, 50, 50, 0.3) !important;
+  font-size: 20px;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+.card-columns {
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(xs) {
+    column-count: 1;
+  }
 }

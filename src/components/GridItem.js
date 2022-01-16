@@ -8,6 +8,7 @@ import {
   CardSubtitle,
   Collapse,
   Tooltip,
+  Badge,
 } from 'reactstrap';
 import ReactPlayer from 'react-player';
 import { DateTime } from 'luxon';
@@ -33,33 +34,41 @@ const GridItem = ({
     }, 1500);
   };
 
+  const capitalize = (string) =>
+    string.charAt(0).toUpperCase() + string.slice(1);
+
   return (
     <Card className={`main-card mb-4 ${emphasized && 'px-4 mt-3 pt-4'}`}>
-      {media_type === 'image' ? (
-        <CardImg
-          alt={'Astronomy photo of the date on ' + date}
-          src={hdurl}
-          top
-          width='100%'
-          className='potd-img'
-        />
-      ) : media_type === 'video' ? (
-        <ReactPlayer
-          url={url}
-          playing={true}
-          muted={true}
-          loop={true}
-          width='100%'
-        />
-      ) : (
-        <CardImg
-          alt='Placeholder image'
-          src='https://via.placeholder.com/150'
-          top
-          width='100%'
-          className='potd-img'
-        />
-      )}
+      <div className='media'>
+        {emphasized && media_type && (
+          <Badge color='secondary'>{capitalize(media_type)} of the day</Badge>
+        )}
+        {media_type === 'image' ? (
+          <CardImg
+            alt={'Astronomy photo of the date on ' + date}
+            src={hdurl}
+            top
+            width='100%'
+            className='potd-img'
+          />
+        ) : media_type === 'video' ? (
+          <ReactPlayer
+            url={url}
+            playing={true}
+            muted={true}
+            loop={true}
+            width='100%'
+          />
+        ) : (
+          <CardImg
+            alt='Placeholder image'
+            src='https://via.placeholder.com/150'
+            top
+            width='100%'
+            className='potd-img'
+          />
+        )}
+      </div>
       <CardBody>
         <Link to={`/photos/${date}`} target='_blank'>
           <CardTitle tag='h5'>{title}</CardTitle>
