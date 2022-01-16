@@ -11,7 +11,7 @@ const APODView = () => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://api.nasa.gov/planetary/apod?start_date=2021-12-23&end_date=2022-01-12&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      `https://api.nasa.gov/planetary/apod?count=51&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => {

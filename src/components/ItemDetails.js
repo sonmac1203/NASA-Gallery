@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Button,
   Card,
   CardImg,
   CardBody,
@@ -11,41 +10,35 @@ import {
 } from 'reactstrap';
 import ReactPlayer from 'react-player';
 import { DateTime } from 'luxon';
-import { Link } from 'react-router-dom';
+import Loading from './Loading';
 
 const ItemDetails = ({ match }) => {
   const [image, setImage] = useState({});
   const { date, title, hdurl, url, media_type, explanation, copyright } = image;
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch(
       `https://api.nasa.gov/planetary/apod?date=${match.params.date}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => {
         setImage(data);
+        setLoading(false);
       });
     // .catch(() => setError(true));
   }, []);
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <Container className='pb-5'>
-      <div className='d-flex justify-content-center'>
-        <Link to='/'>
-          <Button
-            color='white'
-            outline
-            className='home-btn border border-dark mb-3'
-          >
-            <i className='fas fa-home home-button'></i>
-          </Button>
-        </Link>
-      </div>
       <div>
         <Card className='main-card'>
           {media_type === 'image' ? (
             <CardImg
-              alt={'Astronomy photo of the date on' + date}
+              alt={'Astronomy photo of the date on ' + date}
               src={hdurl}
               top
               width='100%'

@@ -37,7 +37,7 @@ const GridItem = ({
     <Card className={`main-card mb-4 ${emphasized && 'px-4 mt-3 pt-4'}`}>
       {media_type === 'image' ? (
         <CardImg
-          alt={'Astronomy photo of the date on' + date}
+          alt={'Astronomy photo of the date on ' + date}
           src={hdurl}
           top
           width='100%'
@@ -61,7 +61,7 @@ const GridItem = ({
         />
       )}
       <CardBody>
-        <Link to={`/photos/${date}`}>
+        <Link to={`/photos/${date}`} target='_blank'>
           <CardTitle tag='h5'>{title}</CardTitle>
         </Link>
         <CardSubtitle className='mb-2 text-muted' tag='h6'>
