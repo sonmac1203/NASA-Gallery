@@ -18,8 +18,6 @@ const ItemDetails = ({ match }) => {
   const { date, title, hdurl, url, media_type, explanation, copyright } = image;
 
   useEffect(() => {
-    console.log(match.params.date);
-
     fetch(
       `https://api.nasa.gov/planetary/apod?date=${match.params.date}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     )
