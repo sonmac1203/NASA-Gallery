@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/NASA-Gallery/static/css/main.20d2d67c.css",
-    "main.js": "/NASA-Gallery/static/js/main.42d507f7.js",
+    "main.js": "/NASA-Gallery/static/js/main.43050328.js",
     "index.html": "/NASA-Gallery/index.html",
     "main.20d2d67c.css.map": "/NASA-Gallery/static/css/main.20d2d67c.css.map",
-    "main.42d507f7.js.map": "/NASA-Gallery/static/js/main.42d507f7.js.map"
+    "main.43050328.js.map": "/NASA-Gallery/static/js/main.43050328.js.map"
   },
   "entrypoints": [
     "static/css/main.20d2d67c.css",
-    "static/js/main.42d507f7.js"
+    "static/js/main.43050328.js"
   ]
 }
