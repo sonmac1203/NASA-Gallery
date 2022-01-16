@@ -116,7 +116,7 @@ const GridItem = ({
             trigger='click'
             isOpen={tooltipOpen}
           >
-            Copied!
+            Copied to clipboard!
           </Tooltip>
         </div>
       </CardBody>

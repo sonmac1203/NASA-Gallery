@@ -18,7 +18,6 @@ const APODView = () => {
         setImages(data);
         setLoading(false);
       });
-    // .catch(() => setError(true));
   }, []);
 
   return (
