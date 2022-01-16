@@ -20,14 +20,13 @@ const ItemDetails = ({ match }) => {
   useEffect(() => {
     setLoading(true);
     fetch(
-      `https://api.nasa.gov/planetary/apod?date=${match.params.date}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      `https://api.nasa.gov/planetary/apod?date=${match.params.date}&api_key=cu6I7GeFFLTVypfkbudGhhUCMiu0yofX3JJjiQBh`
     )
       .then((res) => res.json())
       .then((data) => {
         setImage(data);
         setLoading(false);
       });
-    // .catch(() => setError(true));
   }, []);
 
   return loading ? (
