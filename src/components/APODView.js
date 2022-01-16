@@ -18,7 +18,7 @@ const APODView = () => {
   }, []);
 
   return (
-    <Container className='my-4'>
+    <Container>
       <div>
         <BigPhoto />
       </div>

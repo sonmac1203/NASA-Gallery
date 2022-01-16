@@ -31,44 +31,47 @@ const ItemDetails = ({ match }) => {
   }, []);
 
   return (
-    <div>
-      <Container>
-        <div className='d-flex justify-content-center'>
-          <Link to='/'>
-            <Button
-              color='white'
-              outline
-              className='home-btn border border-dark mb-3'
-            >
-              <i className='fas fa-home home-button'></i>
-            </Button>
-          </Link>
-        </div>
-        <div>
-          <Card className='main-card mb-4'>
-            {media_type === 'image' ? (
-              <CardImg alt='Card image cap' src={hdurl} top width='100%' />
-            ) : (
-              <ReactPlayer
-                url={url}
-                playing={true}
-                muted={true}
-                loop={true}
-                width='100%'
-              />
-            )}
-            <CardBody>
-              <CardTitle tag='h5'>{title}</CardTitle>
-              <CardSubtitle className='mb-2 text-muted' tag='h6'>
-                {DateTime.fromISO(date).toFormat('DD')}
-                {copyright && <span> | By {copyright}</span>}
-              </CardSubtitle>
-              <CardText>{explanation}</CardText>
-            </CardBody>
-          </Card>
-        </div>
-      </Container>
-    </div>
+    <Container className='pb-5'>
+      <div className='d-flex justify-content-center'>
+        <Link to='/'>
+          <Button
+            color='white'
+            outline
+            className='home-btn border border-dark mb-3'
+          >
+            <i className='fas fa-home home-button'></i>
+          </Button>
+        </Link>
+      </div>
+      <div>
+        <Card className='main-card'>
+          {media_type === 'image' ? (
+            <CardImg
+              alt={'Astronomy photo of the date on' + date}
+              src={hdurl}
+              top
+              width='100%'
+            />
+          ) : (
+            <ReactPlayer
+              url={url}
+              playing={true}
+              muted={true}
+              loop={true}
+              width='100%'
+            />
+          )}
+          <CardBody>
+            <CardTitle tag='h5'>{title}</CardTitle>
+            <CardSubtitle className='mb-2 text-muted' tag='h6'>
+              {DateTime.fromISO(date).toFormat('DD')}
+              {copyright && <span> | By {copyright}</span>}
+            </CardSubtitle>
+            <CardText>{explanation}</CardText>
+          </CardBody>
+        </Card>
+      </div>
+    </Container>
   );
 };
 

@@ -38,11 +38,11 @@ const BigPhoto = () => {
 
   return (
     <Row className='justify-content-center'>
-      <Col lg='5'>
+      <Col lg='12'>
         <Card className='main-card mb-4'>
           {media_type === 'image' ? (
             <CardImg
-              alt='Card image cap'
+              alt={'Astronomy photo of the date on' + date}
               src={hdurl}
               top
               width='100%'

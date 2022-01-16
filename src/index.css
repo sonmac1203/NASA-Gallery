@@ -1,5 +1,5 @@
-body {
-  background-color: #f8f9f9;
+.whole-page {
+  background-color: #f8f8f8;
 }
 
 .btn.like-btn,
@@ -24,27 +24,28 @@ body {
   border: none;
 }
 
+.card {
+  border-radius: 0%;
+}
+
 .welcome {
-  background-color: black;
+  /* background-image: url('https://images.unsplash.com/photo-1467685790346-20bfe73a81f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2938&q=80'); */
   width: 100%;
   text-align: center;
   padding-top: 10px;
-  padding-bottom: 7px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #ddd;
 }
 .welcome-sentence {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #f8f9f9;
+  color: black;
 }
 
 .intro-para {
-  color: #f8f9f9;
+  color: black;
   font-size: medium;
 }
-
-/* .potd-img {
-  object-fit: cover;
-} */
 
 a {
   color: black;

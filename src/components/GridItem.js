@@ -27,7 +27,12 @@ const GridItem = ({
     <div>
       <Card className='main-card mb-4'>
         {media_type === 'image' ? (
-          <CardImg alt='Card image cap' src={hdurl} top width='100%' />
+          <CardImg
+            alt={'Astronomy photo of the date on' + date}
+            src={hdurl}
+            top
+            width='100%'
+          />
         ) : (
           <ReactPlayer
             url={url}

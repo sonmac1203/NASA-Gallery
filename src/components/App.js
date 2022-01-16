@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <div>
+      <div className='whole-page'>
         <Banner />
         <Switch>
           <Route exact path='/' component={APODView} />
