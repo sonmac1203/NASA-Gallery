@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/shopify-app/static/css/main.20d2d67c.css",
+    "main.js": "/shopify-app/static/js/main.42d507f7.js",
+    "index.html": "/shopify-app/index.html",
+    "main.20d2d67c.css.map": "/shopify-app/static/css/main.20d2d67c.css.map",
+    "main.42d507f7.js.map": "/shopify-app/static/js/main.42d507f7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.20d2d67c.css",
+    "static/js/main.42d507f7.js"
+  ]
+}
