@@ -71,8 +71,16 @@ const GridItem = ({
         <div className='d-flex'>
           <Button
             color='white'
+            className='like-btn border border-danger text-danger mr-1'
+            onClick={() => setFavorite(!favorite)}
+          >
+            <i className={`mr-2 ${favorite ? 'fas' : 'far'} fa-heart`}></i>
+            Like
+          </Button>
+          <Button
+            color='white'
             outline
-            className='info-btn border border-dark mr-1'
+            className='info-btn border border-dark ml-2 mr-1'
             onClick={() => setExpand(!expand)}
           >
             <i
@@ -81,14 +89,6 @@ const GridItem = ({
               }`}
             ></i>{' '}
             More
-          </Button>
-          <Button
-            color='white'
-            className='like-btn border border-danger ml-2 text-danger mr-1'
-            onClick={() => setFavorite(!favorite)}
-          >
-            <i className={`mr-2 ${favorite ? 'fas' : 'far'} fa-heart`}></i>
-            Like
           </Button>
           <CopyToClipboard text={shareableLink}>
             <Button

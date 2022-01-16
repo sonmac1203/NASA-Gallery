@@ -7,13 +7,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 function App() {
   return (
     <Router>
-      <div className='whole-page'>
-        <Banner />
-        <Switch>
-          <Route exact path='/' component={APODView} />
-          <Route exact path='/photos/:date' component={ItemDetails} />
-        </Switch>
-      </div>
+      <Banner />
+      <Switch>
+        <Route exact path='/' component={APODView} />
+        <Route exact path='/photos/:date' component={ItemDetails} />
+      </Switch>
     </Router>
   );
 }

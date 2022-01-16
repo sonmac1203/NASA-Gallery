@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Row, Col } from 'reactstrap';
 import GridItem from './GridItem';
 
-const BigPhoto = () => {
+const BigPhoto = ({ loading }) => {
   const [image, setImage] = useState({});
 
   useEffect(() => {
@@ -16,11 +16,13 @@ const BigPhoto = () => {
   }, []);
 
   return (
-    <Row className='justify-content-center'>
-      <Col lg='12'>
-        <GridItem image={image} emphasized />
-      </Col>
-    </Row>
+    !loading && (
+      <Row className='justify-content-center'>
+        <Col lg='12'>
+          <GridItem image={image} emphasized />
+        </Col>
+      </Row>
+    )
   );
 };
 
