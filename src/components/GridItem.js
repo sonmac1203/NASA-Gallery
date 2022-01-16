@@ -7,7 +7,7 @@ import {
   CardTitle,
   CardSubtitle,
   Collapse,
-  UncontrolledTooltip,
+  Tooltip,
 } from 'reactstrap';
 import ReactPlayer from 'react-player';
 import { DateTime } from 'luxon';
@@ -23,6 +23,15 @@ const GridItem = ({
   const domain = window.location.href;
   const shareableLink = domain + 'photos/' + date;
 
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const turnOffTooltip = () => {
+    setTooltipOpen(true);
+    setTimeout(() => {
+      setTooltipOpen(false);
+    }, 1500);
+  };
+
   return (
     <div>
       <Card className='main-card mb-4'>
@@ -32,14 +41,23 @@ const GridItem = ({
             src={hdurl}
             top
             width='100%'
+            className='potd-img'
           />
-        ) : (
+        ) : media_type === 'video' ? (
           <ReactPlayer
             url={url}
             playing={true}
             muted={true}
             loop={true}
             width='100%'
+          />
+        ) : (
+          <CardImg
+            alt='Placeholder image'
+            src='https://via.placeholder.com/150'
+            top
+            width='100%'
+            className='potd-img'
           />
         )}
         <CardBody>
@@ -76,24 +94,26 @@ const GridItem = ({
               <Button
                 color='white'
                 className='share-btn border border-dark ml-2'
-                id='ShareButton'
+                id={`share-button-${date}`}
+                onClick={turnOffTooltip}
               >
                 <i className='mr-2 fas fa-share '></i>
                 Share
               </Button>
             </CopyToClipboard>
-            <UncontrolledTooltip
+            <Tooltip
               placement='top'
-              target='ShareButton'
+              target={`share-button-${date}`}
               trigger='click'
+              isOpen={tooltipOpen}
             >
               Copied!
-            </UncontrolledTooltip>
+            </Tooltip>
           </div>
         </CardBody>
         <Collapse isOpen={expand}>
           <Card className='dropdown-card'>
-            <CardBody>{explanation}</CardBody>
+            <CardBody className='pt-0'>{explanation}</CardBody>
           </Card>
         </Collapse>
       </Card>

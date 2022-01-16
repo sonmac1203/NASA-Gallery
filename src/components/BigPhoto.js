@@ -9,7 +9,7 @@ import {
   Collapse,
   Row,
   Col,
-  UncontrolledTooltip,
+  Tooltip,
 } from 'reactstrap';
 import ReactPlayer from 'react-player';
 import { DateTime } from 'luxon';
@@ -26,9 +26,18 @@ const BigPhoto = () => {
   const domain = window.location.href;
   const shareableLink = domain + 'photos/' + date;
 
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+
+  const turnOffTooltip = () => {
+    setTooltipOpen(true);
+    setTimeout(() => {
+      setTooltipOpen(false);
+    }, 1500);
+  };
+
   useEffect(() => {
     fetch(
-      `https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      `https://api.nasa.gov/planetary/apod?&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -39,24 +48,34 @@ const BigPhoto = () => {
   return (
     <Row className='justify-content-center'>
       <Col lg='12'>
-        <Card className='main-card mb-4'>
-          {media_type === 'image' ? (
-            <CardImg
-              alt={'Astronomy photo of the date on' + date}
-              src={hdurl}
-              top
-              width='100%'
-              className='potd-img'
-            />
-          ) : (
-            <ReactPlayer
-              url={url}
-              playing={true}
-              muted={true}
-              loop={true}
-              width='100%'
-            />
-          )}
+        <Card className='main-card mb-4 px-4 mt-3'>
+          <div className='pt-4'>
+            {media_type === 'image' ? (
+              <CardImg
+                alt={'Astronomy photo of the date on' + date}
+                src={hdurl}
+                top
+                width='100%'
+                className='potd-img'
+              />
+            ) : media_type === 'video' ? (
+              <ReactPlayer
+                url={url}
+                playing={true}
+                muted={true}
+                loop={true}
+                width='100%'
+              />
+            ) : (
+              <CardImg
+                alt='Placeholder image'
+                src='https://via.placeholder.com/150'
+                top
+                width='100%'
+                className='potd-img'
+              />
+            )}
+          </div>
           <CardBody>
             <Link to={`/photos/${date}`}>
               <CardTitle tag='h5'>{title}</CardTitle>
@@ -91,24 +110,26 @@ const BigPhoto = () => {
                 <Button
                   color='white'
                   className='share-btn border border-dark ml-2'
-                  id='ShareButton'
+                  id={`share-button-${date}`}
+                  onClick={turnOffTooltip}
                 >
                   <i className='mr-2 fas fa-share '></i>
                   Share
                 </Button>
               </CopyToClipboard>
-              <UncontrolledTooltip
+              <Tooltip
                 placement='top'
-                target='ShareButton'
+                target={`share-button-${date}`}
                 trigger='click'
+                isOpen={tooltipOpen}
               >
                 Copied!
-              </UncontrolledTooltip>
+              </Tooltip>
             </div>
           </CardBody>
           <Collapse isOpen={expand}>
             <Card className='dropdown-card'>
-              <CardBody>{explanation}</CardBody>
+              <CardBody className='pt-0'>{explanation}</CardBody>
             </Card>
           </Collapse>
         </Card>
