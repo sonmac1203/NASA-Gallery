@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# NASALLERY
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About
 
-## Available Scripts
+- General information: This is a browser-based app that is built for the Intern Challenge proposed by [Shopify](https://www.shopify.com/) in January 2022.
+  The project is deployed with CodeSandbox at [here](https://ki0z4.csb.app/).
+- Author: Son Tran Thien Mac
+- Technologies: React, HTML, CSS, JavaScript, Bootstrap, Reactstrap, React Router, Postman, Git, CodeSandbox
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+This app is a gallery showing photos from [Astronomy Picture of the Day API](https://api.nasa.gov/#apod) from NASA. After connecting to the NASA API, the site makes requests to 3 API endpoints to retrieve today's photo, photo captured on a specific date, and 50 random photos from the mega database. At the home page, the page shows today's photo at the top and displays 50 random photos right below in a masonry-arranged grid. Each photo is presented in a card (supported by Reactstrap) with it's title, date taken, copy right, and 3 responsive buttons at the bottom: Like, More, and Share
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- The Like button enables user to either like or unlike the picture
+- The More button allows user to see the explanation of the image in a drop-down area
+- The Share button writes the shareable link of the image into the user's clipboard whenever clicked. The user can use this link to access a site in which a bigger version of the image is shown
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Each image owns a unique route (shareable link) with its date taken being the unique identifier, which was created using React Router. The user can also access this route by clicking the image title that is place right below the image in each card.
 
-### `npm test`
+Since it might take sometimes for the photos to be fully retrieved and rendered, there is a loading display and a placeholder image for each card.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+### Requirements and Recommendations
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Must have [npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- The user ought to maintain a stable connection for the best experience
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Procedure
 
-### `npm run eject`
+1.  Clone this Github repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+        git clone hhttps://github.com/sonmac1203/NASA-Gallery.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2.  Redirect to the root directory of this repository
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+        cd NASA-Gallery
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3.  Install dependencies
 
-## Learn More
+        npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4.  Run the program
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+        npm start
 
-### Code Splitting
+## Interface
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Main display:
 
-### Analyzing the Bundle Size
+![Interface-1](/images/Interface-1.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![Interface-2](/images/Interface-2.png)
 
-### Making a Progressive Web App
+Loading: appear while waiting for a response from NASA API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Loading dots](/images/Loading.png)
 
-### Advanced Configuration
+Viewing image with more details: can be accessed through link (image's title) at main page or shareable link
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Interface-3](/images/Interface-3.png)
