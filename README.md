@@ -2,8 +2,8 @@
 
 ## About
 
+- Deployment: The project is deployed with CodeSandbox at **[here](https://ki0z4.csb.app/)** (https://ki0z4.csb.app/).
 - General information: This is a browser-based app that is built for the Intern Challenge proposed by [Shopify](https://www.shopify.com/) in January 2022.
-  The project is deployed with CodeSandbox at [here](https://ki0z4.csb.app/).
 - Author: Son Tran Thien Mac
 - Technologies: React, HTML, CSS, JavaScript, Bootstrap, Reactstrap, React Router, Postman, Git, CodeSandbox
 
